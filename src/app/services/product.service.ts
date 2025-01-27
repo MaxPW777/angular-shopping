@@ -9,4 +9,6 @@ export class ProductService {
   private data: Produit[] = produits
 
   public getData = (): Produit[] => this.data;
+
+  public getItem = (id: number): Produit | null => this.data.find((item: Produit) => item.id === id) || null;
 }

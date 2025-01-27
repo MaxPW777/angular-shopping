@@ -1,6 +1,5 @@
-<div>
-  {{produit.name}}
+<div [routerLink]="'/details/'+produit.id" class="product">
+  <h2>{{produit.name}}</h2>
   <p>{{produit.price | currency}}</p>
-  <p>{{produit.quantity }}</p>
-  <button (click)="addToCart(produit)">Ajouter au panier</button>
+  <button (click)="navigateToProduct(produit.id)">Voir le produit</button>
 </div>
