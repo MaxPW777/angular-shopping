@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {ProductService} from '../../services/product.service';
 import {Produit} from '../../../interfaces/produit';
 import {ProduitComponent} from '../produit/produit.component';
 

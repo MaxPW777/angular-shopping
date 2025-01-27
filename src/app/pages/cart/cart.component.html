@@ -1,1 +1,7 @@
-<app-liste-produits [produits]="produits"></app-liste-produits>
+@for (item of produits | cart; track item.produit.id){
+  <div>
+    <app-produit [produit]="item.produit"></app-produit>
+    <p>Quantity: {{ item.count }}</p>
+    <button (click)="removeOne(item.produit)">Remove One</button>
+  </div>
+}
