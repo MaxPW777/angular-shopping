@@ -1,0 +1,6 @@
+<div>
+  {{produit.name}}
+  <p>{{produit.price | currency}}</p>
+  <p>{{produit.quantity }}</p>
+  <button (click)="addToCart(produit)">Ajouter au panier</button>
+</div>
