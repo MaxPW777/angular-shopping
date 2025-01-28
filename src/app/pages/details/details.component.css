@@ -1,6 +1,6 @@
 .favorite-btn {
   background: none;
-  border: 1px solid #ccc;
+  border: none ;
   border-radius: 5px;
   padding: 1px;
   cursor: pointer;
@@ -13,4 +13,26 @@
 
 .favorite-icon.grayscale {
   filter: grayscale(100%);
+}
+
+.product-header {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.product-content img {
+  width: 200px;
+  height: 200px;
 }

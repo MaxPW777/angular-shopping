@@ -6,4 +6,5 @@ export interface Produit {
   inCart: boolean;
   isFavorite: boolean;
   quantity: number;
+  description: string;
 }
