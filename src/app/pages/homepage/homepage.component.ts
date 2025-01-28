@@ -18,6 +18,8 @@ export class HomepageComponent {
   public produits: Produit[] = [];
 
   constructor(private readonly productService: ProductService) {
+    this.produits = this.productService.getFavorite();
     this.produits = this.productService.getData();
+
   }
 }

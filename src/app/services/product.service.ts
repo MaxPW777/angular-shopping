@@ -18,14 +18,29 @@ export class ProductService {
     const item = this.data.find((item: Produit) => item.id === id);
     if (item) {
       item.isFavorite = !item.isFavorite;
+      const favorites = JSON.parse(localStorage.getItem("favoris") || "[]");
+      if (item.isFavorite) {
+        favorites.push(item);
+      } else {
+        const index = favorites.findIndex((fav: Produit) => fav.id === id);
+        if (index > -1) favorites.splice(index, 1);
+      }
+
+      localStorage.setItem("favoris", JSON.stringify(favorites));
       this.favoriteChanged.next();
 
     }
   }
 
-  public getFavorite = (): Produit[] =>
-    this.data.filter((item: Produit) => item.isFavorite);
-
+  public getFavorite = (): Produit[] => {
+    const storedFavorites: Produit[] = JSON.parse(localStorage.getItem("favoris") || "[]");
+    return this.data
+      .map(item => {
+        item.isFavorite = storedFavorites.some(fav => fav.id === item.id);
+        return item;
+      })
+      .filter(item => item.isFavorite);
+  };
 }
 
 
