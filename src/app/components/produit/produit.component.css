@@ -1,4 +1,8 @@
 .product{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
@@ -13,6 +17,12 @@
   cursor: pointer;
 }
 
+.product img{
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
 .favorite-btn {
   background: none;
   border: 1px solid #ccc;
@@ -22,8 +32,8 @@
 }
 
 .favorite-icon {
-  width: 24px;
-  height: 24px;
+  width: 24px!important;
+  height: 24px!important;
 }
 
 .favorite-icon.grayscale {

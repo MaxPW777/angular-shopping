@@ -1,5 +1,6 @@
 <div [routerLink]="'/details/'+produit.id" class="product">
   <h2>{{produit.name}}</h2>
+  <img [src]="produit.image" alt="Image de {{produit.name}}">
   <p>{{produit.price | currency}}</p>
   <div class="product-info" >
     <!-- Bouton "Retirer des favoris" ou "Ajouter aux favoris" -->
