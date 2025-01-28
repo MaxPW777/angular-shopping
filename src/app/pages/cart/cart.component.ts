@@ -3,13 +3,17 @@ import { CartService } from '../../services/cart.service';
 import {Produit} from '../../../interfaces/produit';
 import {ProduitComponent} from '../../components/produit/produit.component';
 import {CartPipe} from '../../cart.pipe';
+import {
+  ContactFormComponent
+} from '../../components/contact-form/contact-form.component';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   imports: [
     ProduitComponent,
-    CartPipe
+    CartPipe,
+    ContactFormComponent
   ],
   styleUrls: ['./cart.component.css']
 })

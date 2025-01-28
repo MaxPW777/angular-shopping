@@ -1,0 +1,13 @@
+<div class="form" [formGroup]="formGroup">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" formControlName="name">
+  </div>
+  <div class="form-group">
+    <label for="address">Email</label>
+    <input id="address" name="address" type="text" formControlName="address">
+  </div>
+  <div class="form-group">
+    <button (click)="onSubmit()">Submit</button>
+  </div>
+</div>
