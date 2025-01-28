@@ -12,9 +12,8 @@ export class CartService {
   public addToCart(produit: Produit): void {
     produit.inCart = true; // Mark as in cart
     this.cart.push(produit);
-    this.cartChanged.next();
-
     localStorage.setItem("cart", JSON.stringify(this.cart));
+    this.cartChanged.next();
   }
 
   public getCart(): Produit[] {
@@ -31,15 +30,16 @@ export class CartService {
       if (!this.cart.some(p => p.id === produit.id)) {
         produit.inCart = false;
       }
+      localStorage.setItem("cart", JSON.stringify(this.cart));
       this.cartChanged.next();
     }
-    localStorage.setItem("cart", JSON.stringify(this.cart));
+
   }
 
   public clearCart(): void {
     this.cart.forEach(p => (p.inCart = false)); // Mark all as not in cart
     this.cart = [];
-    this.cartChanged.next();
     localStorage.setItem("cart", JSON.stringify([]));
+    this.cartChanged.next();
   }
 }
