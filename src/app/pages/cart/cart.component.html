@@ -2,13 +2,21 @@
 
   <div class="product-list">
     @for (item of produits | cart; track item.produit.id){
-    <div>
+    <div class="cart-item">
       <app-produit [produit]="item.produit"></app-produit>
       <p>Quantity: {{ item.count }}</p>
-      <button (click)="removeOne(item.produit)">Remove One</button>
+      <div class="buttons">
+        <button (click)="removeOne(item.produit)" class="remove-btn">-</button><button (click)="addOne(item.produit)" class="add-btn">+</button>
+      </div>
     </div>
     }
   </div>
 
+  <!-- Button to clear cart -->
+  <button (click)="clearCart()" id="clear-btn">Clear Cart</button>
+
   <app-contact-form></app-contact-form>
+
+
+
 </div>

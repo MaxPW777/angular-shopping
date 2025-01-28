@@ -37,7 +37,15 @@ export class CartComponent implements OnInit {
     this.cartService.removeOneFromCart(produit);
   }
 
+  addOne(produit: Produit): void {
+    this.cartService.addToCart(produit);
+  }
+
   trackById(index: number, item: { produit: Produit }): number {
     return item.produit.id; // Use the unique identifier `id`
+  }
+
+  clearCart(): void {
+    this.cartService.clearCart();
   }
 }
