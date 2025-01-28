@@ -1,4 +1,15 @@
 <h1>{{product?.name}}</h1>
 <p>{{product?.price | currency}}</p>
+<div class="product-info" >
+  <!-- Bouton "Retirer des favoris" ou "Ajouter aux favoris" -->
+  <button (click)="switchFavorite(); $event.stopPropagation()" class="favorite-btn">
+    <img
+      [src]="!(product) || product.isFavorite ? 'prefere.png' : 'prefere.png'"
+      [class.grayscale]="!product?.isFavorite"
+      alt="Icône de favori"
+      [attr.aria-label]="!(product) || product.isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'"
+      class="favorite-icon" />
+  </button>
+</div>
 
 <button (click)="addToCart()">Ajouter au panier</button>

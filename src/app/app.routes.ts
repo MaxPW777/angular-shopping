@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import {HomepageComponent} from './pages/homepage/homepage.component';
 import {DetailsComponent} from './pages/details/details.component';
 import {CartComponent} from './pages/cart/cart.component';
+import {FavoriteComponent} from './pages/favorite/favorite.component';
 
 export const routes: Routes = [
   {
@@ -18,5 +19,10 @@ export const routes: Routes = [
     path: "details/:id",
     title: "details",
     component: DetailsComponent,
+  },
+  {
+    path: "favorite",
+    title: "favorite",
+    component: FavoriteComponent,
   }
 ];

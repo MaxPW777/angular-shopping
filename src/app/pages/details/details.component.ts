@@ -32,4 +32,9 @@ export class DetailsComponent {
     }
   }
 
+  switchFavorite(): void {
+
+    this.productService.switchFavorite(this.product?.id)
+  }
+
 }

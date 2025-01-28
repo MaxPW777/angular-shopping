@@ -12,3 +12,20 @@
   background-color: rgba(51, 51, 51, 0.1);
   cursor: pointer;
 }
+
+.favorite-btn {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1px;
+  cursor: pointer;
+}
+
+.favorite-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.favorite-icon.grayscale {
+  filter: grayscale(100%);
+}

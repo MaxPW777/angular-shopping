@@ -3,6 +3,7 @@ import {Produit} from '../../../interfaces/produit';
 import {CurrencyPipe} from '@angular/common';
 import {CartService} from '../../services/cart.service';
 import {Router, RouterLink} from '@angular/router';
+import {ProductService} from '../../services/product.service';
 
 @Component({
   selector: 'app-produit',
@@ -16,7 +17,11 @@ import {Router, RouterLink} from '@angular/router';
 export class ProduitComponent {
   @Input() produit!: Produit;
   private router = inject(Router);
+  produitService = inject(ProductService);
   navigateToProduct(productId: number) {
     this.router.navigate([`/details/${productId}`]);
+  }
+  switchFavorite(): void {
+  this.produitService.switchFavorite(this.produit.id)
   }
 }

@@ -1,5 +1,16 @@
 <div [routerLink]="'/details/'+produit.id" class="product">
   <h2>{{produit.name}}</h2>
   <p>{{produit.price | currency}}</p>
+  <div class="product-info" >
+    <!-- Bouton "Retirer des favoris" ou "Ajouter aux favoris" -->
+    <button (click)="switchFavorite(); $event.stopPropagation()" class="favorite-btn">
+      <img
+        [src]="produit.isFavorite ? 'prefere.png' : 'prefere.png'"
+        [class.grayscale]="!produit.isFavorite"
+        alt="Icône de favori"
+        [attr.aria-label]="produit.isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'"
+        class="favorite-icon" />
+    </button>
+  </div>
   <button (click)="navigateToProduct(produit.id)">Voir le produit</button>
 </div>
