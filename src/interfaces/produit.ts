@@ -3,5 +3,6 @@ export interface Produit {
   name: string;
   price: number;
   inCart: boolean;
+  isFavorite: boolean;
   quantity: number;
 }

@@ -11,4 +11,12 @@ export class ProductService {
   public getData = (): Produit[] => this.data;
 
   public getItem = (id: number): Produit | null => this.data.find((item: Produit) => item.id === id) || null;
+
+  public addToFavorite = (id: number): void => {
+    const item = this.getItem(id);
+    if (item) {
+      item.isFavorite = true;
+    }
+  }
+
 }
