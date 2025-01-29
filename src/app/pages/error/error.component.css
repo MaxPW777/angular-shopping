@@ -1,0 +1,16 @@
+.error-page {
+  text-align: center;
+  padding: 50px;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.error-page h1 {
+  font-size: 4em;
+  color: #dc3545; /* Red for errors */
+}
+
+.error-page a {
+  color: #007bff;
+  text-decoration: none;
+}
