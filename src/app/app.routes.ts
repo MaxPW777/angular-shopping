@@ -3,6 +3,8 @@ import {HomepageComponent} from './pages/homepage/homepage.component';
 import {DetailsComponent} from './pages/details/details.component';
 import {CartComponent} from './pages/cart/cart.component';
 import {FavoriteComponent} from './pages/favorite/favorite.component';
+import {OrderComponent} from './pages/orders/orders.component';
+import {ErrorComponent} from './pages/error/error.component';
 
 export const routes: Routes = [
   {
@@ -21,8 +23,17 @@ export const routes: Routes = [
     component: DetailsComponent,
   },
   {
-    path: "favorite",
-    title: "favorite",
+    path: "favorites",
+    title: "favorites",
     component: FavoriteComponent,
+  },
+  {
+    path: "orders",
+    title: "orders",
+    component: OrderComponent,
+  },
+  {
+    path:"**",
+    component: ErrorComponent,
   }
 ];
