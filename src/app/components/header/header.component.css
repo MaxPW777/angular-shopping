@@ -1,9 +1,9 @@
 header{
-  background-color: #333;
+  background-color: darkseagreen;
   color: white;
   padding: 10px;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 20px;
   display: flex;
@@ -20,8 +20,12 @@ header{
         a{
           color: white;
           text-decoration: none;
+          text-transform: uppercase;
+          font-weight: normal;
+          transition: color 0.2s;
           &:hover{
-            color: #f1f1f1;
+            color: #899266;
+            transition: color 0.2s;
           }
         }
       }

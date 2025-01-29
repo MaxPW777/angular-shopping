@@ -35,3 +35,8 @@ h1, h2 {
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
 }
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}

@@ -1,9 +1,8 @@
 .product-list{
-  margin-top: 20px;
-  margin-bottom: 20px;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 3rem;
 }

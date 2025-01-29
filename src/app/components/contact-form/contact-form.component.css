@@ -5,6 +5,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width:50vw;
 }
 
 .form, .form-group{
@@ -23,4 +24,17 @@ input{
 
 label{
     font-weight: bold;
+}
+
+.btn-order {
+  background-color: #62c5da;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }

@@ -3,8 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -25,7 +23,7 @@
 
 .favorite-btn {
   background: none;
-  border:0px;
+  border:none;
   border-radius: 5px;
   padding: 1px;
   cursor: pointer;
