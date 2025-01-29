@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule} from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import {Produit} from '../../../interfaces/produit';
 import {ProduitComponent} from '../../components/produit/produit.component';
@@ -6,6 +7,7 @@ import {CartPipe} from '../../cart.pipe';
 import {
   ContactFormComponent
 } from '../../components/contact-form/contact-form.component';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,8 +15,11 @@ import {
   imports: [
     ProduitComponent,
     CartPipe,
-    ContactFormComponent
+    CommonModule,
+    ContactFormComponent,
+    RouterModule
   ],
+  standalone: true,
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
@@ -41,11 +46,11 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(produit);
   }
 
-  trackById(index: number, item: { produit: Produit }): number {
-    return item.produit.id; // Use the unique identifier `id`
-  }
-
   clearCart(): void {
     this.cartService.clearCart();
+  }
+
+  getTotal(): number {
+    return this.cartService.getTotal();
   }
 }

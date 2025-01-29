@@ -1,7 +1,6 @@
 import {Component, inject, Input} from '@angular/core';
 import {Produit} from '../../../interfaces/produit';
 import {CurrencyPipe} from '@angular/common';
-import {CartService} from '../../services/cart.service';
 import {Router, RouterLink} from '@angular/router';
 import {ProductService} from '../../services/product.service';
 
@@ -12,6 +11,7 @@ import {ProductService} from '../../services/product.service';
     RouterLink
   ],
   templateUrl: './produit.component.html',
+  standalone: true,
   styleUrl: './produit.component.css'
 })
 export class ProduitComponent {

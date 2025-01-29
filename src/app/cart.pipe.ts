@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Produit } from '../interfaces/produit';
 
 @Pipe({
+  standalone: true,
   name: 'cart'
 })
 export class CartPipe implements PipeTransform {

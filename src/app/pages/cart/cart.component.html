@@ -1,22 +1,29 @@
 <div class="cart-main">
-
-  <div class="product-list">
-    @for (item of produits | cart; track item.produit.id){
-    <div class="cart-item">
-      <app-produit [produit]="item.produit"></app-produit>
-      <p>Quantity: {{ item.count }}</p>
-      <div class="buttons">
-        <button (click)="removeOne(item.produit)" class="remove-btn">-</button><button (click)="addOne(item.produit)" class="add-btn">+</button>
-      </div>
-    </div>
-    }
+  <div class="page-title">
+    <h2>Your cart</h2>
   </div>
 
-  <!-- Button to clear cart -->
-  <button (click)="clearCart()" id="clear-btn">Clear Cart</button>
-
-  <app-contact-form></app-contact-form>
-
-
-
+  @if ((produits | cart).length > 0) {
+  <div class="product-list">
+    @for (item of produits | cart; track item.produit.id){
+  <div class="cart-item">
+    <app-produit [produit]="item.produit"></app-produit>
+    <p>Quantity: {{ item.count }}</p>
+    <div class="buttons">
+      <button (click)="removeOne(item.produit)" class="remove-btn">-</button>
+      <button (click)="addOne(item.produit)" class="add-btn">+</button>
+    </div>
+  </div>
+  }
+  </div>
+  <!-- Visible only when cart has items -->
+  <p class="total-price">Total: {{ getTotal() | currency:'USD'}}</p>
+    <button (click)="clearCart()" id="clear-btn">Clear Cart</button>
+    <a routerLink="/orders" class="orders-link">View Orders</a>
+    <app-contact-form></app-contact-form>
+  } @else {
+  <div class="empty-cart-message">
+    <p>Your cart is empty. Start shopping now!</p>
+  </div>
+  }
 </div>

@@ -42,4 +42,10 @@ export class CartService {
     localStorage.setItem("cart", JSON.stringify([]));
     this.cartChanged.next();
   }
+
+  public getTotal(): number {
+    return this.cart.reduce((acc, p) => acc + p.price, 0);
+  }
+
 }
+
