@@ -1,0 +1,66 @@
+.order-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.order-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.order-header {
+  background-color: #f8f9fa;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.order-header:hover {
+  background-color: #e9ecef;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-title {
+  font-weight: 500;
+}
+
+.order-total {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.arrow {
+  margin-left: 10px;
+  font-size: 0.9em;
+}
+
+.order-details {
+  padding: 15px;
+  background-color: white;
+  border-top: 1px solid #eee;
+}
+
+.products {
+  margin-top: 10px;
+}
+
+.products h4 {
+  margin-bottom: 8px;
+  color: #6c757d;
+}
+
+.products ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.products li {
+  margin-bottom: 5px;
+}

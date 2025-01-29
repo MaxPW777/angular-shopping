@@ -1,0 +1,32 @@
+<div class="order-list">
+  <div class="page-title">
+    <h2>Your Orders</h2>
+</div>
+  @for (order of orders; track order.date) {
+  <div class="order-item">
+    <div class="order-header" (click)="toggleOrder(order.date)">
+      <div class="header-content">
+        <span class="order-title">{{ order.name }} - {{ order.date | date }}</span>
+          <span class="order-total">{{ order.total | currency }}</span>
+          <span class="arrow">{{ expandedOrder === order.date ? '▼' : '▶' }}</span>
+        </div>
+      </div>
+
+      @if (expandedOrder === order.date) {
+  <div class="order-details">
+    <p><strong>Address:</strong> {{ order.address }}</p>
+    <div class="products">
+      <h4>Products:</h4>
+      <ul>
+        @for (product of order.products; track product.id) {
+        <li>{{ product.name }} - {{ product.price | currency:'USD' }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+  }
+  </div>
+  } @empty {
+  <p>No orders found.</p>
+  }
+</div>
