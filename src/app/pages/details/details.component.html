@@ -8,7 +8,7 @@
       [src]="!(product) || product.isFavorite ? 'prefere.png' : 'prefere.png'"
       [class.grayscale]="!product?.isFavorite"
       alt="Icône de favori"
-      [attr.aria-label]="!(product) || product.isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'"
+      [attr.aria-label]="!(product) || product.isFavorite ? 'Remove from favorites' : 'Add to favorites'"
       class="favorite-icon" />
   </button>
 </div>
@@ -17,7 +17,7 @@
   <img [src]="product?.image" alt="Image du produit" />
   <p>{{product?.description}}</p>
   <p>{{product?.price | currency}}</p>
-  <button (click)="addToCart()" class="add-btn">Ajouter au panier</button>
+  <button (click)="addToCart()" class="add-btn">Add to cart</button>
 </div>
 
 
