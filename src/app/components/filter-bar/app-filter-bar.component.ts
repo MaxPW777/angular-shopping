@@ -16,8 +16,6 @@ export class FilterBarComponent {
     sortBy: string;
   }>();
 
-  // All possible Pokémon types for your dataset
-  // You can adjust or load them dynamically if needed
   types: string[] = [
     'Grass',
     'Fire',
