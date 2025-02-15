@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Produit } from '../../interfaces/produit';
+import { PokemonCard } from '../../interfaces/pokemonCard';
 import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cart: Produit[] = [];
+  private cart: PokemonCard[] = [];
   public cartChanged = new Subject<void>();
 
-  public addToCart(produit: Produit): void {
+  public addToCart(produit: PokemonCard): void {
     produit.inCart = true; // Mark as in cart
     this.cart.push(produit);
     localStorage.setItem("cart", JSON.stringify(this.cart));
     this.cartChanged.next();
   }
 
-  public getCart(): Produit[] {
+  public getCart(): PokemonCard[] {
     if (localStorage.getItem("cart")) {
       this.cart = JSON.parse(localStorage.getItem("cart") || '[]');
     }
     return this.cart;
   }
 
-  public removeOneFromCart(produit: Produit): void {
+  public removeOneFromCart(produit: PokemonCard): void {
     const index = this.cart.findIndex(p => p.id === produit.id);
     if (index !== -1) {
       this.cart.splice(index, 1);
@@ -44,7 +44,7 @@ export class CartService {
   }
 
   public getTotal(): number {
-    return this.cart.reduce((acc, p) => acc + p.price, 0);
+    return this.cart.reduce((acc, p) => acc + p.prixMoyen, 0);
   }
 
 }

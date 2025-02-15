@@ -1,15 +1,15 @@
 // cart.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
-import { Produit } from '../interfaces/produit';
+import { PokemonCard } from '../interfaces/pokemonCard';
 
 @Pipe({
   standalone: true,
   name: 'cart'
 })
 export class CartPipe implements PipeTransform {
-  transform(products: Produit[]): { produit: Produit; count: number }[] {
+  transform(products: PokemonCard[]): { produit: PokemonCard; count: number }[] {
     // Create a dictionary to map product IDs to their aggregated data
-    const productCounts: { [key: number]: { produit: Produit; count: number } } = {};
+    const productCounts: { [key: string]: { produit: PokemonCard; count: number } } = {};
 
     // Count occurrences of each product
     for (const item of products) {

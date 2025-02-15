@@ -1,5 +1,5 @@
 import {Component, inject, Input} from '@angular/core';
-import {Produit} from '../../../interfaces/produit';
+import {PokemonCard} from '../../../interfaces/pokemonCard';
 import {CurrencyPipe} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {ProductService} from '../../services/product.service';
@@ -15,7 +15,7 @@ import {ProductService} from '../../services/product.service';
   styleUrl: './produit.component.css'
 })
 export class ProduitComponent {
-  @Input() produit!: Produit;
+  @Input() produit!: PokemonCard;
   private router = inject(Router);
   produitService = inject(ProductService);
   navigateToProduct(productId: number) {

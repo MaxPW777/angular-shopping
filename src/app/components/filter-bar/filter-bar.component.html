@@ -1,0 +1,34 @@
+<div class="flex flex-col gap-4 p-4 bg-gray-100 rounded-2xl">
+  <div class="flex flex-wrap gap-2">
+    <!-- Search Input -->
+    <input
+      type="text"
+      class="p-2 border rounded-xl"
+      placeholder="Search by name..."
+      [(ngModel)]="searchTerm"
+      (input)="emitChange()"
+    />
+
+    <!-- Type Filter -->
+    <select
+      class="p-2 border rounded-xl"
+      [(ngModel)]="selectedType"
+      (change)="emitChange()"
+    >
+      <option value="">All Types</option>
+      @for (type of types; track type){
+      <option value="{{type}}">{{type}}</option>
+      }
+    </select>
+
+    <!-- Sort -->
+    <select
+      class="p-2 border rounded-xl"
+      [(ngModel)]="sortBy"
+      (change)="emitChange()"
+    >
+      <option value="name">Trier par nom</option>
+      <option value="hp">Trier par hp</option>
+    </select>
+  </div>
+</div>
