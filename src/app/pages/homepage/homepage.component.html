@@ -1,1 +1,6 @@
-<app-liste-produits [produits]="produits"></app-liste-produits>
+<app-filter-bar
+  (filterChange)="onFilterChange($event)"
+></app-filter-bar>
+<app-liste-produits [produits]="produits | typeFilter: currentFilter.selectedType |
+          search: currentFilter.searchTerm |
+          sort: currentFilter.sortBy"></app-liste-produits>
