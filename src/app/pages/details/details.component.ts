@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Produit} from '../../../interfaces/produit';
+import {PokemonCard} from '../../../interfaces/pokemonCard';
 import {ProductService} from '../../services/product.service';
 import {CartService} from '../../services/cart.service';
 import {ActivatedRoute} from '@angular/router';
@@ -14,7 +14,7 @@ import {CurrencyPipe} from '@angular/common';
   styleUrl: './details.component.css'
 })
 export class DetailsComponent {
-  public product: Produit | null = null;
+  public product: PokemonCard | null = null;
 
   public constructor(
     private readonly productService: ProductService,
@@ -22,7 +22,7 @@ export class DetailsComponent {
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe(params => {
-      this.product = this.productService.getItem(+params['id']);
+      this.product = this.productService.getItem(params['id']);
     })
   }
 
@@ -33,7 +33,7 @@ export class DetailsComponent {
   }
 
   switchFavorite(): void {
-
+    if (!this.product) return;
     this.productService.switchFavorite(this.product?.id)
   }
 

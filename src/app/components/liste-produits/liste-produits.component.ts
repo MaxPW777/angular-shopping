@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Produit} from '../../../interfaces/produit';
+import {PokemonCard} from '../../../interfaces/pokemonCard';
 import {ProduitComponent} from '../produit/produit.component';
 
 @Component({
@@ -11,6 +11,6 @@ import {ProduitComponent} from '../produit/produit.component';
   styleUrl: './liste-produits.component.css'
 })
 export class ListeProduitsComponent {
-  @Input() public produits: Produit[] = [];
+  @Input() public produits: PokemonCard[] = [];
 
 }

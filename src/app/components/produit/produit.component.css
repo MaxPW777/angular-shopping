@@ -7,7 +7,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 12rem;
-  height: 12rem;
+  height: 17rem;
 }
 
 .product:hover{
@@ -16,8 +16,8 @@
 }
 
 .product img{
-  width: 50%;
-  height: 50%;
+  width: 70%;
+  height: 100%;
   object-fit: cover;
 }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule} from '@angular/common';
 import { CartService } from '../../services/cart.service';
-import {Produit} from '../../../interfaces/produit';
+import {PokemonCard} from '../../../interfaces/pokemonCard';
 import {ProduitComponent} from '../../components/produit/produit.component';
 import {CartPipe} from '../../cart.pipe';
 import {
@@ -23,7 +23,7 @@ import {RouterModule} from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  produits: Produit[] = [];
+  produits: PokemonCard[] = [];
 
   constructor(private cartService: CartService) {}
 
@@ -38,11 +38,11 @@ export class CartComponent implements OnInit {
     this.produits = this.cartService.getCart();
   }
 
-  removeOne(produit: Produit): void {
+  removeOne(produit: PokemonCard): void {
     this.cartService.removeOneFromCart(produit);
   }
 
-  addOne(produit: Produit): void {
+  addOne(produit: PokemonCard): void {
     this.cartService.addToCart(produit);
   }
 

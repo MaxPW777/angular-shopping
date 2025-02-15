@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Produit} from '../../../interfaces/produit';
+import {PokemonCard} from '../../../interfaces/pokemonCard';
 import {ProductService} from '../../services/product.service';
 import {ProduitComponent} from '../../components/produit/produit.component';
 
@@ -12,7 +12,7 @@ import {ProduitComponent} from '../../components/produit/produit.component';
 })
 export class FavoriteComponent implements OnInit {
 
-  produits: Produit[] = [];
+  produits: PokemonCard[] = [];
 
   constructor(private productService: ProductService) {}
   ngOnInit() {
