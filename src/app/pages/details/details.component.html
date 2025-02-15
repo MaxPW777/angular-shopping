@@ -17,6 +17,12 @@
   <img [src]="product?.image" alt="Image du produit" />
   <p>{{product?.prixMoyen | currency}}</p>
   <button (click)="addToCart()" class="add-btn">Add to cart</button>
+  @if (product?.nomEvolution) {
+    <div>
+      <h2>ALLER A L'EVOLUTION</h2>
+      <button (click)="goToEvolution()" class="add-btn">GO</button>
+    </div>
+  }
 </div>
 
 

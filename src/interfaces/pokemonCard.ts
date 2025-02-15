@@ -8,6 +8,7 @@ export interface PokemonCard {
   type: string[];
   rareté: string;
   prixMoyen: number;
+  nomEvolution?: string;
   isFavorite: boolean;
   inCart: boolean;
 }

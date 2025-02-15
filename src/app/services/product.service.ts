@@ -17,9 +17,15 @@ export class ProductService {
   }
 
   private fetchData(): void {
-    this.http.get<{ data: any[] }>(this.apiUrl).subscribe(response => {
-      this.data = this.mapData(response.data);
-    });
+    const cachedData = localStorage.getItem('pokemonCache');
+    if (cachedData) {
+      this.data = JSON.parse(cachedData);
+    } else {
+      this.http.get<{ data: PokemonGetDto[] }>(this.apiUrl).subscribe(response => {
+        this.data = this.mapData(response.data);
+        localStorage.setItem('pokemonCache', JSON.stringify(this.data)); // Store data in cache
+      });
+    }
   }
 
   public mapData(data: PokemonGetDto[]): PokemonCard[] {
@@ -32,12 +38,18 @@ export class ProductService {
       attaque: item.attacks.map(attack => ({ name: attack.name, damage: attack.damage })),
       type: item.types,
       rareté: item.rarity,
-      prixMoyen: item.tcgplayer?.prices.normal?.high || 0,
+      prixMoyen: item.tcgplayer?.prices.normal?.high || item.tcgplayer?.prices.reverseHolofoil?.high || item.tcgplayer?.prices.holofoil?.high || item.tcgplayer?.prices.unlimited?.high || item.tcgplayer?.prices.unlimitedHolofoil?.high || 0,
+      nomEvolution: item.evolvesTo && item.evolvesTo[0],
       isFavorite: false,
       inCart: false
     }));
   }
 
+  public getEvolution(name?: string): string | null {
+    if (!name) return null;
+    const evolutionCard = this.data.find((item: PokemonCard) => item.nom === name);
+    return evolutionCard ? `http://localhost:4200/details/${evolutionCard.id}` : null;
+  }
   public getData(): Observable<PokemonCard[]> {
     return this.http.get<{ data: PokemonGetDto[] }>(this.apiUrl).pipe(
       map(response => this.mapData(response.data))
